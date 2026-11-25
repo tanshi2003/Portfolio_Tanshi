@@ -107,7 +107,7 @@ const projects = [
     image: `${process.env.PUBLIC_URL}/images/work-1.png`,
     stack: ['Python', 'Game Logic', 'UI'],
     github: 'https://github.com/tanshi2003/Tic-tac-toe',
-    demo: 'https://tic-tac-toe-1-lqzs.onrender.com',
+    demo: 'https://tanshi2003.github.io/Tic-tac-toe/',
     overview: 'A lightweight browser game designed around turn-based interaction, win-state logic, and a simple but engaging experience.',
     contribution: 'Built the gameplay flow, move validation, and the visual interaction layer for a polished single-page game experience.',
   },
