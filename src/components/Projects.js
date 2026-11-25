@@ -176,7 +176,7 @@ const Projects = () => {
       <div className="project-card-info">
         <div className="project-card-title-line"><h3>{project.title}</h3><span className="project-card-number">{project.number}</span></div>
         <p>{project.short}</p>
-        <div className="project-card-stack">{project.stack.map((tech) => <span key={tech}>{tech}</span>)}</div>
+        
       </div>
     </motion.article>
   );
