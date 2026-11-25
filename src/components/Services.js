@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaArrowUpRightFromSquare, FaCode, FaDiagramProject, FaWandMagicSparkles } from 'react-icons/fa6';
+import { FaCode, FaDiagramProject, FaWandMagicSparkles } from 'react-icons/fa6';
 
 const services = [
  { icon:<FaCode/>, slug:'web', title:'Web application development', description:'Responsive, maintainable interfaces and application flows built around real user and business requirements.', tags:['React','JavaScript','Node.js'] },
@@ -35,7 +35,7 @@ const Services = () => (
        <div className="service-card-top"><span className="service-icon">{service.icon}</span></div>
        <h3>{service.title}</h3><p>{service.description}</p>
        <div className="service-tags">{service.tags.map(tag=><span key={tag}>{tag}</span>)}</div>
-       <span className="service-arrow" aria-hidden="true"><FaArrowUpRightFromSquare/></span>
+
       </div>
      </article>
     ))}

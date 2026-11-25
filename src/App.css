@@ -702,3 +702,12 @@ body.menu-open { overflow: hidden; }
 .skills-category-card:nth-child(3) .skills-card-heading { justify-content: flex-start; position: static; padding: 0; }
 .skills-category-card:nth-child(3) .skills-card-count { position: static; right: auto; margin-left: auto; }
 .skills-category-card:nth-child(3) .skills-chip-grid { justify-content: center; }
+@media(max-width:600px){ .skills-card-grid{grid-template-columns:1fr;} .skills-category-card:nth-child(3) .skills-card-heading{padding:0 38px;} }
+
+
+/* Hero console badge: relocate away from the code lines */
+.console-float-two { left: auto !important; right: 22px !important; bottom: -28px !important; z-index: 3; }
+.console-float-two span { white-space: nowrap; }
+@media (max-width: 700px) { .console-float-two { right: 8px !important; bottom: -18px !important; } }
+/* Services cards: keep the visual artwork, remove the redundant corner action icon */
+.service-arrow { display: none !important; }
