@@ -697,17 +697,8 @@ body.menu-open { overflow: hidden; }
 @media(prefers-reduced-motion:reduce){.service-visual *,.service-visual{animation:none!important;transition:none!important}}
 
 
-/* Programming Languages card: centered as a featured row in the stack grid */
-.skills-category-card:nth-child(3) { grid-column: 1 / -1; width: min(760px, 100%); justify-self: center; }
-.skills-category-card:nth-child(3) .skills-card-heading { justify-content: center; }
-.skills-category-card:nth-child(3) .skills-card-count { margin-left: 0; }
+/* Programming Languages: keep its heading left while centering its skill chips */
+.skills-category-card:nth-child(3) { grid-column: auto; width: 100%; justify-self: stretch; }
+.skills-category-card:nth-child(3) .skills-card-heading { justify-content: flex-start; position: static; padding: 0; }
+.skills-category-card:nth-child(3) .skills-card-count { position: static; right: auto; margin-left: auto; }
 .skills-category-card:nth-child(3) .skills-chip-grid { justify-content: center; }
-@media(max-width:600px) { .skills-category-card:nth-child(3) { grid-column: auto; width: 100%; } }
-
-/* Programming Languages: centered within its own grid card, never spanning the page */
-.skills-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.skills-category-card:nth-child(3) { grid-column: auto !important; width: 100% !important; justify-self: stretch !important; }
-.skills-category-card:nth-child(3) .skills-card-heading { justify-content: center; position: relative; padding: 0 44px; }
-.skills-category-card:nth-child(3) .skills-card-count { position: absolute; right: 0; margin-left: 0; }
-.skills-category-card:nth-child(3) .skills-chip-grid { justify-content: center; }
-@media(max-width:600px){ .skills-card-grid{grid-template-columns:1fr;} .skills-category-card:nth-child(3) .skills-card-heading{padding:0 38px;} }
