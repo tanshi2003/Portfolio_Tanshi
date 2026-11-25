@@ -421,3 +421,132 @@ body.menu-open { overflow: hidden; }
 .project-card:hover::after { width: 100%; }
 @media (max-width: 920px) { .projects-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; } .project-card-title-line h3 { font-size: 20px; } }
 @media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; gap: 15px; } .project-card-visual { aspect-ratio: 16/9; } .project-card-info p { min-height: auto; } }
+
+/* Global small-screen safeguards */
+@media (max-width: 1200px) {
+  .home-layout { column-gap: 4%; }
+  .console-float { display: none; }
+  .project-feature { grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr); }
+}
+
+@media (max-width: 980px) {
+  .home-layout { grid-template-columns: minmax(0, 1fr) minmax(280px, .72fr); }
+  .hero-console { min-height: 330px; }
+  .console-body { font-size: 9px; }
+  .console-indent { padding-left: 14px; }
+  .console-indent-2 { padding-left: 28px; }
+  .contact-panel { gap: 5%; }
+  .project-feature { grid-template-columns: 1fr 0.85fr; }
+}
+
+@media (max-width: 760px) {
+  .App, main, section, .navbar { max-width: 100vw; }
+  .max-width, .footer-inner { width: calc(100% - 32px); }
+  section { overflow-x: clip; }
+  .home-layout { grid-template-columns: 1fr; }
+  .hero-console { width: 100%; max-width: none; }
+  .console-chrome { height: 42px; }
+  .console-body { overflow-x: hidden; }
+  .scroll-cue { bottom: -60px; }
+  .hero-socials { bottom: -60px; }
+  .about-summary, .exp-card, .service-card, .project-card, .contact-panel { min-width: 0; }
+  .exp-card-top { align-items: flex-start; }
+  .exp-heading-text { min-width: 0; }
+  .exp-role, .exp-company { overflow-wrap: anywhere; }
+  .service-card { min-width: 0; }
+  .project-filters { width: 100%; }
+  .project-feature-copy { max-width: none; }
+  .project-modal-actions a { max-width: 100%; justify-content: center; }
+  .contact-panel { min-width: 0; }
+  .contact-detail { align-items: flex-start; min-width: 0; }
+  .contact-detail > div { min-width: 0; }
+  .contact-copy h2 { overflow-wrap: anywhere; }
+}
+
+@media (max-width: 600px) {
+  .home { padding: 108px 0 92px; }
+  .eyebrow { align-items: flex-start; flex-wrap: wrap; row-gap: 6px; }
+  .eyebrow-rule { display: none; }
+  .text-2 { font-size: clamp(42px, 13vw, 58px); line-height: 1.02; }
+  .text-3 { align-items: flex-start; }
+  .typing-label, .typing { max-width: 100%; }
+  .home-actions { width: 100%; }
+  .home-actions .button { flex: 1 1 170px; }
+  .home-meta { line-height: 1.7; }
+  .hero-console { min-height: 310px; }
+  .console-body { font-size: 8.5px; line-height: 2; }
+  .console-footer { flex-wrap: wrap; }
+  .console-footer span:last-child { display: none; }
+  .scroll-cue { display: none; }
+  .hero-socials { position: static; margin-top: 28px; }
+  .about-grid { gap: 28px; }
+  .about-summary { width: 100%; }
+  .about-cv-btn { max-width: 100%; justify-content: center; }
+  .exp-card-top { flex-wrap: nowrap; }
+  .exp-duration { margin: 0 0 0 auto; }
+  .techstack-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .techstack-tab { width: 100%; min-height: 42px; text-align: center; }
+  .techstack-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .techstack-card { min-width: 0; }
+  .projects { padding: 78px 0 88px; }
+  .projects-shell { width: calc(100% - 32px); }
+  .projects-header { margin-bottom: 28px; }
+  .projects .title { font-size: clamp(38px, 12vw, 46px); }
+  .projects-lead { margin-top: 14px; }
+  .projects-count-row { gap: 12px; }
+  .project-feature-image-label { left: 10px; top: 10px; max-width: calc(100% - 66px); overflow-wrap: anywhere; }
+  .project-feature-arrow { right: 10px; bottom: 10px; }
+  .project-feature-meta { gap: 8px 12px; }
+  .project-feature-copy h3 { font-size: clamp(32px, 10vw, 40px); }
+  .project-card-title-line { align-items: flex-start; }
+  .project-card-title-line h3 { font-size: clamp(18px, 5.5vw, 22px); }
+  .project-card-index { max-width: calc(100% - 62px); overflow-wrap: anywhere; }
+  .project-modal-backdrop { align-items: end; padding: 0; }
+  .project-modal { width: 100%; max-height: 92svh; border-radius: 12px 12px 0 0; border-bottom: 0; }
+  .project-modal-close { position: fixed; top: calc(8svh + 8px); right: 12px; }
+  .project-modal-visual { max-height: 32svh; }
+  .project-modal-visual img { max-height: 28svh; }
+  .project-modal-actions { display: grid; grid-template-columns: 1fr; }
+  .project-modal-actions a { width: 100%; }
+  .contact { padding: 82px 0; }
+  .contact-panel { padding: 24px 18px; }
+  .contact-copy h2 { font-size: clamp(38px, 12vw, 44px); line-height: 1.02; }
+  .contact-copy .button { width: 100%; }
+  .contact-detail a { overflow-wrap: anywhere; word-break: break-word; }
+  .footer-inner { align-items: flex-start; }
+}
+
+@media (max-width: 380px) {
+  .max-width, .footer-inner { width: calc(100% - 24px); }
+  .navbar { height: 64px; }
+  .navbar.sticky { height: 60px; }
+  .navbar.sticky .menu { top: 60px; }
+  .menu { top: 64px; padding-inline: 14px; }
+  .logo-mark { font-size: 23px; }
+  .text-2 { font-size: 40px; }
+  .home-actions { flex-direction: column; }
+  .home-actions .button { width: 100%; flex-basis: auto; }
+  .console-body { padding-inline: 8px; font-size: 8px; }
+  .console-indent { padding-left: 8px; }
+  .console-indent-2 { padding-left: 16px; }
+  .console-muted { width: 18px; }
+  .title { font-size: 32px; }
+  .exp-card-top { flex-wrap: wrap; }
+  .exp-duration { width: 100%; margin: 2px 0 0 46px; }
+  .techstack-grid { grid-template-columns: 1fr; }
+  .techstack-card { min-height: 68px; }
+  .projects-shell { width: calc(100% - 24px); }
+  .projects .title { font-size: 36px; }
+  .filter-btn { flex: 1 1 calc(33.333% - 8px); justify-content: center; padding-inline: 7px; }
+  .project-feature-copy h3 { font-size: 32px; }
+  .project-card-info { padding-inline: 14px; }
+  .project-modal-body { padding-inline: 14px; }
+  .contact-panel { padding-inline: 14px; }
+  .contact-copy h2 { font-size: 36px; }
+}
+
+@media (hover: none) {
+  .project-card:hover, .service-card:hover, .exp-card:hover, .techstack-card:hover,
+  .home-actions .button:hover, .hero-console:hover, .project-feature:hover { transform: none; }
+  .project-card:hover::after { width: 0; }
+}
