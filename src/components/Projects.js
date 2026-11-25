@@ -74,16 +74,45 @@ const projects = [
   },
   {
     number: '06',
+    category: 'Full Stack',
+    title: 'Saffron & Stone',
+    short: 'A modern multi-cuisine restaurant experience featuring an extensive menu, interactive cart, and an AI-powered food guide.',
+    description: 'A responsive restaurant and café website with 1,000+ menu entries, smart food discovery, dietary filters, demo checkout, and an AI assistant.',
+    image: `${process.env.PUBLIC_URL}/images/rw.png`,
+    stack: [
+      'HTML5',
+      'CSS3',
+      'JavaScript',
+      'Gemini API',
+      'Vercel Serverless Functions',
+      'GitHub Pages',
+    ],
+    github: 'https://github.com/tanshi2003/Restaurant-website',
+    demo: 'https://tanshi2003.github.io/Restaurant-website/',
+    overview: 'Developed Saffron & Stone, a modern restaurant and café website featuring more than 1,000 food and beverage entries across 32 collections and 17 top-level categories. The experience includes interactive menu exploration, dish search, dietary filters, a shopping bag with quantity and price calculations, and Olive, an AI-powered food guide integrated with the Gemini API.',
+    contribution: 'Built the responsive frontend using HTML, CSS, and vanilla JavaScript. Implemented category-based menu navigation, dish search, dietary filtering, interactive shopping bag functionality, quantity controls, subtotal and delivery calculations, and demo checkout options. Integrated Olive through a Vercel serverless chat endpoint powered by Gemini API and deployed the frontend using GitHub Pages.',
+  },
+  {
+    number: '06',
     category: 'Backend',
     title: 'Password Manager',
-    short: 'A secure storage and generation tool built for managing credentials efficiently.',
-    description: 'A secure password storage and generator tool.',
-    image: `${process.env.PUBLIC_URL}/images/work-8.png`,
-    stack: ['Python', 'Security', 'Storage', 'Utility'],
+    short: 'An account-based password manager featuring client-side encryption, secure credential storage, and cross-device synchronisation.',
+    description: 'A full-stack password management application with authenticated accounts, an encrypted credential vault, and intelligent password generation.',
+    image: `${process.env.PUBLIC_URL}/images/pw.png`,
+    stack: [
+      'JavaScript',
+      'Node.js',
+      'Express.js',
+      'MySQL',
+      'TiDB',
+      'JWT',
+      'bcrypt',
+      'Web Crypto API',
+    ],
     github: 'https://github.com/tanshi2003/Password_Manager',
-    demo: 'https://password-manager-pptl.onrender.com/',
-    overview: 'A utility app focused on credential storage, easier retrieval, and secure password generation for everyday workflow needs.',
-    contribution: 'Built the core authentication and storage logic with a clean user experience focused on practical utility and security-minded design.',
+    demo: 'https://tanshi2003.github.io/Password_Manager/',
+    overview: 'Developed a full-stack password manager that enables users to create accounts, authenticate securely, store and manage website credentials, generate strong passwords, and access their encrypted vault across devices. Implemented browser-side AES-256-GCM encryption with PBKDF2-based key derivation, ensuring vault contents are encrypted before synchronisation with the MySQL-compatible database.',
+    contribution: 'Implemented RESTful APIs using Node.js and Express, integrated MySQL database operations, and developed account authentication using bcrypt and JWT. Built client-side vault encryption using the Web Crypto API, along with credential management, password generation, search, and encrypted backup functionality. Deployed the frontend through GitHub Pages and the backend through Render.',
   },
   {
     number: '07',
@@ -102,42 +131,42 @@ const projects = [
     number: '08',
     category: 'Frontend',
     title: 'Tic Tac Toe Game',
-    short: 'Interactive browser game built with a clean UI and logic-driven gameplay.',
-    description: 'Python-based two-player game in a 3x3 grid.',
+    short: 'An interactive browser-based Tic Tac Toe game featuring AI opponents, custom player names, and persistent match score tracking.',
+    description: 'A responsive 3x3 strategy game where players challenge an AI bot or compete with a friend in local multiplayer mode.',
     image: `${process.env.PUBLIC_URL}/images/ttt.png`,
-    stack: ['Python', 'Game Logic', 'UI'],
+    stack: ['HTML5', 'CSS3', 'JavaScript', 'Minimax AI', 'Local Storage'],
     github: 'https://github.com/tanshi2003/Tic-tac-toe',
     demo: 'https://tanshi2003.github.io/Tic-tac-toe/',
-    overview: 'A lightweight browser game designed around turn-based interaction, win-state logic, and a simple but engaging experience.',
-    contribution: 'Built the gameplay flow, move validation, and the visual interaction layer for a polished single-page game experience.',
+    overview: 'Developed an interactive Tic Tac Toe game with single-player and local two-player modes. Features three AI difficulty levels, custom player names, automatic win and draw detection, and a live scoreboard that tracks match performance across rounds using browser local storage.',
+    contribution: 'Implemented turn-based game logic, AI decision-making using the Minimax algorithm, move validation, win-state detection, and responsive UI interactions. Added customizable player names, persistent score tracking, highlighted winning combinations, and independent controls for restarting rounds and resetting matches.',
   },
   {
     number: '09',
     category: 'Frontend',
-    title: 'Snake Game (Python)',
-    short: 'A classic arcade experience focused on responsiveness and game-state transitions.',
-    description: 'Classic snake game with food-eating and self-collision logic.',
+    title: 'Snake Game',
+    short: 'A redesigned classic Snake arcade game available in both browser and desktop editions, featuring customizable speed, sound effects, and responsive controls.',
+    description: 'A browser-playable arcade game with dynamic movement, collision detection, real-time scoring, and customizable gameplay, alongside the original Python desktop version.',
     image: `${process.env.PUBLIC_URL}/images/snake.png`,
-    stack: ['Python', 'Game Logic', 'Controls'],
+    stack: ['HTML5', 'CSS3', 'JavaScript', 'Canvas API', 'Python', 'Pygame'],
     github: 'https://github.com/tanshi2003/Snakegame',
     demo: 'https://tanshi2003.github.io/Snakegame/',
-    overview: 'A nostalgic snake game that emphasizes motion, progression, and core game loop behavior.',
-    contribution: 'Implemented collision logic, movement rules, scoring updates, and a clean loop for an engaging retro gameplay experience.',
+    overview: 'Rebuilt the classic Snake game as a responsive browser experience while preserving the original Python and Pygame desktop edition. The browser version includes keyboard and mobile controls, adjustable difficulty, a 10-level manual speed controller, sound effects, wall wrapping, and locally saved personal best scores.',
+    contribution: 'Developed the browser game loop, snake movement, food generation, collision detection, and real-time scoring system. Implemented manual speed adjustment, dynamic difficulty progression, audio feedback using the Web Audio API, responsive mobile controls, pause and restart functionality, and persistent high-score tracking.',
   },
   {
     number: '10',
     category: 'Frontend',
     title: 'Rock Paper Scissors',
-    short: 'A quick-play decision game with live outcomes and simple interactive feedback.',
-    description: 'Python CLI game where you battle the computer.',
+    short: 'An interactive browser game featuring AI-based solo play, local multiplayer, custom player names, and real-time score tracking.',
+    description: 'A responsive Rock Paper Scissors game offering computer and same-device multiplayer modes with interactive feedback and optional Flask API support.',
     image: `${process.env.PUBLIC_URL}/images/rps.png`,
-    stack: ['Python', 'CLI UI', 'Decision Logic'],
+    stack: ['HTML5', 'CSS3', 'JavaScript', 'Python', 'Flask', 'REST API'],
     github: 'https://github.com/tanshi2003/Rock-Paper-Scisssors',
     demo: 'https://tanshi2003.github.io/Rock-Paper-Scisssors/',
-    overview: 'A fun and fast interactive game built to showcase simple competition logic and user-driven gameplay.',
-    contribution: 'Created the game flow and outcome handling with a clean interactive interface that keeps the experience lightweight and fun.',
+    overview: 'Designed a browser-based Rock Paper Scissors game with solo play against a randomly choosing computer opponent and local two-player matches. Includes custom player names, hidden move selection until both players have chosen, automatic winner detection, score tracking, sound controls, and keyboard shortcuts. Also includes an optional Flask API for standalone game-logic experimentation.',
+    contribution: 'Developed the interactive gameplay system, random computer move generation, multiplayer turn management, move validation, and round-based scoring. Implemented hidden player selections, custom name handling, sound effects, keyboard shortcuts, responsive UI components, and an optional Flask REST API for game logic.',
   },
-]
+];
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -145,15 +174,26 @@ const Projects = () => {
   const reduceMotion = useReducedMotion();
   const featured = projects.find((project) => project.title === 'TeleCRM');
   const otherProjects = projects.filter((project) => project !== featured);
-  const filteredProjects = useMemo(() => activeFilter === 'All' ? projects : projects.filter((project) => project.category === activeFilter), [activeFilter]);
+  const filteredProjects = useMemo(
+    () =>
+      activeFilter === 'All'
+        ? projects
+        : projects.filter((project) => project.category === activeFilter),
+    [activeFilter],
+  );
 
   useEffect(() => {
     if (!selectedProject) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    const handleKey = (e) => { if (e.key === 'Escape') setSelectedProject(null); };
+    const handleKey = (event) => {
+      if (event.key === 'Escape') setSelectedProject(null);
+    };
     window.addEventListener('keydown', handleKey);
-    return () => { document.body.style.overflow = previousOverflow; window.removeEventListener('keydown', handleKey); };
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKey);
+    };
   }, [selectedProject]);
 
   const openProject = (project) => setSelectedProject(project);
