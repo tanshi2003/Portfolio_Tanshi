@@ -2,12 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
  FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaNodeJs, FaServer, FaPython,
- FaDatabase, FaBrain, FaRobot, FaGitAlt, FaCloud, FaTerminal, FaNetworkWired, FaChartLine,
- FaCode, FaCodeBranch
+ FaBrain, FaRobot, FaGitAlt, FaCloud, FaTerminal, FaNetworkWired, FaChartLine,
+ FaCode
 } from 'react-icons/fa';
 import {
  SiNextdotjs, SiDjango, SiCplusplus, SiScikitlearn, SiDocker, SiGithub, SiMysql,
- SiExpress, SiFastapi, SiGooglecloud, SiStreamlit
+ SiExpress, SiFastapi, SiStreamlit
 } from 'react-icons/si';
 
 const groups=[
