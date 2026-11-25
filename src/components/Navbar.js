@@ -37,9 +37,9 @@ const Navbar = () => {
           {links.map(([label, href], index) => (
             <li key={href}><Link to={href} smooth onClick={() => setMenuActive(false)}>{label}</Link></li>
           ))}
-          <li className="mobile-resume"><a href="/resume.pdf" target="_blank" rel="noreferrer" onClick={() => setMenuActive(false)}>Resume <FaArrowUpRightFromSquare /></a></li>
+          <li className="mobile-resume"><a href={`${process.env.PUBLIC_URL}/resume.pdf`} target="_blank" rel="noreferrer" onClick={() => setMenuActive(false)}>Resume <FaArrowUpRightFromSquare /></a></li>
         </ul>
-        <a className="nav-resume" href="/resume.pdf" target="_blank" rel="noreferrer">Resume <FaArrowUpRightFromSquare /></a>
+        <a className="nav-resume" href={`${process.env.PUBLIC_URL}/resume.pdf`} target="_blank" rel="noreferrer">Resume <FaArrowUpRightFromSquare /></a>
         <button type="button" className="menu-toggle" aria-label={isMenuActive ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={isMenuActive} onClick={() => setMenuActive(!isMenuActive)}>
           {isMenuActive ? <FaXmark /> : <FaBars />}
         </button>
