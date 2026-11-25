@@ -33,7 +33,7 @@ export default function Skills(){
      <div className="skills-chip-grid">{group.skills.map(([name,icon])=><div className="skills-chip" key={name}><span className="skills-chip-icon">{icon}</span><span>{name}</span></div>)}</div>
     </motion.article>)}
    </div>
-   <div className="skills-bottom-note"><span>TOOLS I USE TO MAKE THINGS WORK</span><span>TECH STACK / 2026</span></div>
+   <div className="skills-bottom-note"><span>TOOLS I USE TO MAKE THINGS WORK</span></div>
   </div>
  </section>
 }
