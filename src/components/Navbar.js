@@ -35,7 +35,7 @@ const Navbar = () => {
         </Link>
         <ul className={`menu ${isMenuActive ? 'active' : ''}`}>
           {links.map(([label, href], index) => (
-            <li key={href}><Link to={href} smooth onClick={() => setMenuActive(false)}><span className="nav-index">0{index + 1}</span>{label}</Link></li>
+            <li key={href}><Link to={href} smooth onClick={() => setMenuActive(false)}>{label}</Link></li>
           ))}
           <li className="mobile-resume"><a href="/resume.pdf" target="_blank" rel="noreferrer" onClick={() => setMenuActive(false)}>Resume <FaArrowUpRightFromSquare /></a></li>
         </ul>
