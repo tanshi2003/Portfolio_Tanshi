@@ -2,11 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
  FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaNodeJs, FaServer, FaPython,
- FaBrain, FaRobot, FaGitAlt, FaCloud, FaTerminal, FaNetworkWired, FaChartLine,
+ FaBrain, FaRobot, FaGitAlt, FaTerminal, FaNetworkWired, FaChartLine,
  FaCode
 } from 'react-icons/fa';
 import {
- SiNextdotjs, SiDjango, SiCplusplus, SiScikitlearn, SiDocker, SiGithub, SiMysql,
+ SiNextdotjs, SiDjango, SiCplusplus, SiScikitlearn, SiGithub, SiMysql,
  SiExpress, SiFastapi, SiStreamlit
 } from 'react-icons/si';
 
