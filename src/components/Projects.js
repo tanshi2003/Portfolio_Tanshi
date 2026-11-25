@@ -137,173 +137,111 @@ const projects = [
     overview: 'FrameCheck helps designers review motion and video content by extracting frames and surfacing visible text for spelling and grammar checks, with timestamps to locate issues quickly.',
     contribution: 'Built the FastAPI backend workflow and integrated FFmpeg frame extraction to support timestamped video review.',
   },
-];
+]
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
-  const shouldReduceMotion = useReducedMotion();
-
-  const filteredProjects = useMemo(() => {
-    if (activeFilter === 'All') return projects;
-    return projects.filter((project) => project.category === activeFilter);
-  }, [activeFilter]);
+  const reduceMotion = useReducedMotion();
+  const featured = projects.find((project) => project.title === 'TeleCRM');
+  const otherProjects = projects.filter((project) => project !== featured);
+  const filteredProjects = useMemo(() => activeFilter === 'All' ? projects : projects.filter((project) => project.category === activeFilter), [activeFilter]);
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape' && selectedProject) setSelectedProject(null);
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    if (!selectedProject) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const handleKey = (e) => { if (e.key === 'Escape') setSelectedProject(null); };
+    window.addEventListener('keydown', handleKey);
+    return () => { document.body.style.overflow = previousOverflow; window.removeEventListener('keydown', handleKey); };
   }, [selectedProject]);
+
+  const openProject = (project) => setSelectedProject(project);
+  const projectCard = (project, index) => (
+    <motion.article
+      key={project.number}
+      layout
+      className="project-card"
+      initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: reduceMotion ? 0 : 0.45, delay: reduceMotion ? 0 : (index % 3) * 0.07 }}
+      whileHover={reduceMotion ? undefined : { y: -5 }}
+    >
+      <button type="button" className="project-card-visual" onClick={() => openProject(project)} aria-label={`View ${project.title} details`}>
+        <img src={project.image} alt={`${project.title} preview`} loading="lazy" />
+        <span className="project-card-index">{project.number} / {project.category.toUpperCase()}</span>
+        <span className="project-card-arrow">↗</span>
+      </button>
+      <div className="project-card-info">
+        <div className="project-card-title-line"><h3>{project.title}</h3><span className="project-card-number">{project.number}</span></div>
+        <p>{project.short}</p>
+        <div className="project-card-stack">{project.stack.map((tech) => <span key={tech}>{tech}</span>)}</div>
+      </div>
+    </motion.article>
+  );
 
   return (
     <section className="projects" id="projects">
-      <div className="max-width">
+      <div className="max-width projects-shell">
         <header className="projects-header">
           <div className="projects-heading-copy">
-            <span className="section-kicker">SELECTED WORK / 2024—2026</span>
-            <h2 className="title">Projects<span className="projects-title-dot">.</span></h2>
-            <p className="projects-lead">A selection of products, experiments, and systems I've built.</p>
+            <span className="section-kicker">THE WORK / 2024—2026</span>
+            <h2 className="title">Selected works<span className="projects-title-dot">.</span></h2>
+            <p className="projects-lead">Different problems, different tools. A shared obsession with making useful things work beautifully.</p>
           </div>
-          <div className="project-filters" aria-label="Project filters">
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                type="button"
-                className={`filter-btn ${activeFilter === filter ? 'active' : ''}`}
-                onClick={() => setActiveFilter(filter)}
-              >
-                {filter}
-              </button>
-            ))}
+          <div className="project-filters" aria-label="Filter projects">
+            {filters.map((filter) => <button key={filter} type="button" className={`filter-btn ${activeFilter === filter ? 'active' : ''}`} onClick={() => setActiveFilter(filter)}>{filter}</button>)}
           </div>
         </header>
 
-        <div className="projects-count-row">
-          <span>{filteredProjects.length} projects</span>
-          <span>10 TOTAL</span>
-        </div>
+        <div className="projects-count-row"><span>{filteredProjects.length} projects</span><span>SELECTED / 10</span></div>
 
-        <div className="projects-list">
+        {activeFilter === 'All' && featured && (
+          <motion.article className="project-feature" initial={reduceMotion ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: reduceMotion ? 0 : 0.5 }}>
+            <button type="button" className="project-feature-image" onClick={() => openProject(featured)} aria-label="Open TeleCRM details">
+              <img src={featured.image} alt="TeleCRM application preview" loading="lazy" />
+              <span className="project-feature-image-label">FEATURED PROJECT / 01</span><span className="project-feature-arrow">↗</span>
+            </button>
+            <div className="project-feature-copy">
+              <div className="project-feature-meta"><span>FULL STACK</span><span>FINAL YEAR PROJECT</span></div>
+              <h3>{featured.title}</h3>
+              <p className="project-feature-tagline">Lead management, built for teams.</p>
+              <p>{featured.short}</p>
+              <div className="project-card-stack">{featured.stack.map((tech) => <span key={tech}>{tech}</span>)}</div>
+              <button type="button" className="project-explore" onClick={() => openProject(featured)}>Explore project <span>↗</span></button>
+            </div>
+          </motion.article>
+        )}
+
+        <div className="projects-grid" aria-label="Project gallery">
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
-              <motion.article
-                key={project.number}
-                layout
-                initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-                className="project-row"
-              >
-                <button
-                  type="button"
-                  className="project-row-image"
-                  onClick={() => setSelectedProject(project)}
-                  aria-label={`Open ${project.title} details`}
-                >
-                  <img src={project.image} alt={`${project.title} preview`} loading="lazy" />
-                  <span className="project-image-open">↗</span>
-                </button>
-                <div className="project-row-content">
-                  <div className="project-row-meta">
-                    <span>{project.number}</span>
-                    <span>{project.category}</span>
-                  </div>
-                  <h3>{project.title}</h3>
-                  <p>{project.short}</p>
-                  <div className="project-stack-line" aria-label="Technology stack">
-                    {project.stack.map((tech) => <span key={tech}>{tech}</span>)}
-                  </div>
-                </div>
-                <button
-                  className="project-row-open"
-                  type="button"
-                  onClick={() => setSelectedProject(project)}
-                  aria-label={`View ${project.title} details`}
-                >
-                  ↗
-                </button>
-              </motion.article>
-            ))}
+            {(activeFilter === 'All' ? otherProjects : filteredProjects).map(projectCard)}
           </AnimatePresence>
         </div>
       </div>
 
       <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            className="project-modal-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedProject(null)}
-          >
-            <motion.div
-              className="project-modal"
-              initial={{ opacity: 0, y: 22, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 12, scale: 0.98 }}
-              onClick={(event) => event.stopPropagation()}
-            >
-              <button
-                type="button"
-                className="project-modal-close"
-                onClick={() => setSelectedProject(null)}
-                aria-label="Close project details"
-              >
-                ×
-              </button>
-
-              <div className="project-modal-visual">
-                <img src={selectedProject.image} alt={`${selectedProject.title} preview`} />
+        {selectedProject && <motion.div className="project-modal-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedProject(null)}>
+          <motion.div className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" initial={reduceMotion ? false : { opacity: 0, y: 18, scale: .985 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 10, scale: .985 }} onClick={(e) => e.stopPropagation()}>
+            <button type="button" className="project-modal-close" onClick={() => setSelectedProject(null)} aria-label="Close project details">×</button>
+            <div className="project-modal-visual"><img src={selectedProject.image} alt={`${selectedProject.title} preview`} /></div>
+            <div className="project-modal-body">
+              <div className="project-modal-header"><span className="project-modal-number">{selectedProject.number}</span><span className="project-modal-category">{selectedProject.category}</span></div>
+              <h3 id="project-modal-title">{selectedProject.title}</h3>
+              <p className="project-modal-description">{selectedProject.overview}</p>
+              <div className="project-modal-grid">
+                <div><h4>What I worked on</h4><p>{selectedProject.contribution}</p></div>
+                <div className="project-modal-technology"><h4>Built with</h4><div className="modal-techs">{selectedProject.stack.map((tech) => <span key={tech}>{tech}</span>)}</div></div>
               </div>
-
-              <div className="project-modal-body">
-                <div className="project-modal-header">
-                  <span className="project-modal-number">{selectedProject.number}</span>
-                  <span className="project-modal-category">{selectedProject.category}</span>
-                </div>
-                <h3>{selectedProject.title}</h3>
-                <p className="project-modal-description">{selectedProject.overview}</p>
-
-                <div className="project-modal-grid">
-                  <div className="project-modal-contribution">
-                    <h4>My contribution</h4>
-                    <p>{selectedProject.contribution}</p>
-                  </div>
-                  <div className="project-modal-technology">
-                    <h4>Technology stack</h4>
-                    <div className="project-techs modal-techs">
-                      {selectedProject.stack.map((tech) => (
-                        <span key={tech}>{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="project-modal-actions">
-                  {selectedProject.demo && (
-                    <a href={selectedProject.demo} target="_blank" rel="noreferrer noopener">
-                      <FontAwesomeIcon icon={faExternalLinkAlt} />
-                      <span>Live Demo</span>
-                    </a>
-                  )}
-                  {selectedProject.github && (
-                    <a href={selectedProject.github} target="_blank" rel="noreferrer noopener">
-                      <FontAwesomeIcon icon={faGithub} />
-                      <span>GitHub</span>
-                    </a>
-                  )}
-                </div>
+              <div className="project-modal-actions">
+                {selectedProject.demo && <a href={selectedProject.demo} target="_blank" rel="noreferrer noopener"><FontAwesomeIcon icon={faExternalLinkAlt}/><span>Live demo</span></a>}
+                {selectedProject.github && <a href={selectedProject.github} target="_blank" rel="noreferrer noopener"><FontAwesomeIcon icon={faGithub}/><span>Source code</span></a>}
               </div>
-            </motion.div>
-          </motion.div>
-        )}
+            </div>
+          </motion.div></motion.div>}
       </AnimatePresence>
     </section>
   );
 };
-
 export default Projects;
