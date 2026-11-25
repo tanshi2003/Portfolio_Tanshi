@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     if (!typedRef.current) return undefined;
     const typed = new Typed(typedRef.current, {
-      strings: ['Software Engineer', 'AI & Automation Builder', 'Full-stack Developer'],
+      strings: ['AI Product Engineering', 'Full-stack Development', 'Automation & LLM Evaluation'],
       typeSpeed: 48,
       backSpeed: 28,
       backDelay: 1500,
@@ -45,7 +45,7 @@ const Home = () => {
           </h1>
 
           <div className="text-3 hero-enter hero-enter-4">
-            <span className="typing-label">Currently building as a</span>
+            <span className="typing-label">My work spans</span>
             <span className="typing" ref={typedRef} />
           </div>
 
