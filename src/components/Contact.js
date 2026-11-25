@@ -9,7 +9,7 @@ const Contact = () => (
           <span className="section-kicker">HAVE A GOOD PROBLEM?</span>
           <h2>Let’s make<br /><span>something useful.</span></h2>
           <p>Open to conversations around software engineering, AI-enabled products, automation, and interesting opportunities.</p>
-          <a className="button button-primary" href="mailto:tanshikhandelwal03@gmail.com">Start a conversation <FaArrowUpRightFromSquare /></a>
+          <a className="button button-primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=tanshikhandelwal03@gmail.com" target="_blank" rel="noreferrer">Start a conversation <FaArrowUpRightFromSquare /></a>
         </div>
         <div className="contact-details">
           <div className="contact-detail"><span className="contact-detail-icon"><FaEnvelope /></span><div><small>EMAIL</small><a href="mailto:tanshikhandelwal03@gmail.com">tanshikhandelwal03@gmail.com</a></div></div>
