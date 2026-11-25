@@ -58,7 +58,7 @@ const Home = () => {
             <a className="button button-primary" href="#projects">
               View selected work <FaArrowUpRightFromSquare />
             </a>
-            <a className="button button-quiet" href="mailto:tanshikhandelwal03@gmail.com">
+            <a className="button button-quiet" href="https://mail.google.com/mail/?view=cm&fs=1&to=tanshikhandelwal03@gmail.com" target="_blank" rel="noreferrer">
               Get in touch <span aria-hidden="true">↗</span>
             </a>
           </div>
