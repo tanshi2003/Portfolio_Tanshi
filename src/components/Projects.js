@@ -123,7 +123,7 @@ const projects = [
     image: `${process.env.PUBLIC_URL}/images/work-9.png`,
     stack: ['React', 'Node.js', 'CRM', 'UI'],
     github: 'https://github.com/tanshi2003/telecrm_db',
-    demo: 'https://telecrmio.netlify.app/',
+    demo: 'https://tanshi2003.github.io/telecrm_db/',
     overview: 'A customer relationship management system built around lead tracking, access control, and operational execution.',
     contribution: 'Contributed to the CRM experience with a focus on user interaction, campaign workflows, and a structured management interface.',
   },
