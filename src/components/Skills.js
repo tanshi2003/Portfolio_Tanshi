@@ -1,171 +1,107 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-
+import React, { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import {
-  FaReact,
-  FaNodeJs,
-  FaHtml5,
-  FaCss3Alt,
-  FaJsSquare,
-  FaGitAlt,
-  FaPython,
-  FaDatabase,
-  FaCloudUploadAlt,
-  FaRobot,
-  FaBrain,
-  FaChartLine,
-  FaGlobe,
-  FaCode,
-  FaCodeBranch,
-  FaServer,
-  FaNetworkWired,
+  FaCode, FaPython, FaJsSquare, FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaServer,
+  FaBrain, FaDatabase, FaRobot, FaChartLine, FaGitAlt, FaCloudUploadAlt, FaGlobe,
+  FaCodeBranch, FaNetworkWired
 } from 'react-icons/fa';
-
 import {
-  SiDjango,
-  SiVercel,
-  SiNetlify,
-  SiRailway,
-  SiXampp,
-  SiDbeaver,
-  SiGithub,
-  SiVscodium,
-  SiNextdotjs,
-  SiScikitlearn,
-  SiCplusplus,
+  SiCplusplus, SiNextdotjs, SiDjango, SiScikitlearn, SiGithub, SiVscodium, SiVercel,
+  SiNetlify, SiRailway, SiXampp, SiDbeaver
 } from 'react-icons/si';
 
-const categories = [
-  {
-    name: 'Languages',
-    techs: [
-      { name: 'C', icon: <FaCode />, color: '#52616B' },
-      { name: 'C++', icon: <SiCplusplus />, color: '#00599C' },
-      { name: 'Python', icon: <FaPython />, color: '#3776AB' },
-      { name: 'JavaScript', icon: <FaJsSquare />, color: '#F7DF1E' },
-    ],
-  },
-  {
-    name: 'Web & Frameworks',
-    techs: [
-      { name: 'HTML', icon: <FaHtml5 />, color: '#E34F26' },
-      { name: 'CSS', icon: <FaCss3Alt />, color: '#1572B6' },
-      { name: 'React.js', icon: <FaReact />, color: '#61DAFB' },
-      { name: 'Next.js', icon: <SiNextdotjs />, color: '#111827' },
-      { name: 'Node.js', icon: <FaNodeJs />, color: '#339933' },
-      { name: 'Express.js', icon: <FaServer />, color: '#52616B' },
-      { name: 'FastAPI', icon: <FaNetworkWired />, color: '#009688' },
-      { name: 'Django', icon: <SiDjango />, color: '#092E20' },
-    ],
-  },
-  {
-    name: 'Data, AI & Visualization',
-    techs: [
-      { name: 'Power BI', icon: <FaChartLine />, color: '#F2C811' },
-      { name: 'NLP-based Analysis', icon: <FaBrain />, color: '#8B5CF6' },
-      { name: 'Data Validation', icon: <FaDatabase />, color: '#4479A1' },
-      { name: 'scikit-learn', icon: <SiScikitlearn />, color: '#F7931E' },
-      { name: 'spaCy / NLTK', icon: <FaBrain />, color: '#8B5CF6' },
-      { name: 'Gemini API', icon: <FaRobot />, color: '#4285F4' },
-      { name: 'Streamlit', icon: <FaChartLine />, color: '#FF4B4B' },
-      { name: 'Plotly', icon: <FaChartLine />, color: '#3F4F75' },
-      { name: 'LLM evaluation', icon: <FaBrain />, color: '#8B5CF6' },
-    ],
-  },
-  {
-    name: 'Tools, Databases & CS',
-    techs: [
-      { name: 'Google Apps Script', icon: <FaRobot />, color: '#34A853' },
-      { name: 'Google Sites', icon: <FaGlobe />, color: '#4285F4' },
-      { name: 'Git', icon: <FaGitAlt />, color: '#F05032' },
-      { name: 'GitHub', icon: <SiGithub />, color: '#24292F' },
-      { name: 'VS Code', icon: <SiVscodium />, color: '#007ACC' },
-      { name: 'PyCharm', icon: <FaPython />, color: '#21D789' },
-      { name: 'MySQL', icon: <FaDatabase />, color: '#4479A1' },
-      { name: 'Docker', icon: <FaServer />, color: '#2496ED' },
-      { name: 'GitHub Actions', icon: <FaCodeBranch />, color: '#2088FF' },
-      { name: 'AWS (EC2 / S3)', icon: <FaCloudUploadAlt />, color: '#FF9900' },
-      { name: 'CI / CD', icon: <FaNetworkWired />, color: '#64748B' },
-      { name: 'FFmpeg', icon: <FaCode />, color: '#007808' },
-      { name: 'SQLite', icon: <FaDatabase />, color: '#003B57' },
-      { name: 'DSA', icon: <FaCode />, color: '#2563EB' },
-      { name: 'OOP', icon: <FaCodeBranch />, color: '#7C3AED' },
-      { name: 'DBMS', icon: <FaDatabase />, color: '#0EA5E9' },
-      { name: 'OS', icon: <FaServer />, color: '#10B981' },
-      { name: 'Computer Networks', icon: <FaNetworkWired />, color: '#F59E0B' },
-    ],
-  },
-  {
-    name: 'Deployment',
-    techs: [
-      { name: 'Vercel', icon: <SiVercel />, color: '#000000' },
-      { name: 'Render', icon: <FaCloudUploadAlt />, color: '#46E3B7' },
-      { name: 'Netlify', icon: <SiNetlify />, color: '#00C7B7' },
-      { name: 'Railway', icon: <SiRailway />, color: '#8B5CF6' },
-      { name: 'XAMPP', icon: <SiXampp />, color: '#FB7A24' },
-      { name: 'DBeaver', icon: <SiDbeaver />, color: '#382923' },
-    ],
-  },
+const chapters = [
+  { title: 'The Language', subtitle: 'Syntax, logic & problem solving', mark: '01', note: 'The building blocks.', techs: [
+    ['C', <FaCode />], ['C++', <SiCplusplus />], ['Python', <FaPython />], ['JavaScript', <FaJsSquare />]
+  ]},
+  { title: 'The Interface', subtitle: 'Front-end & experience engineering', mark: '02', note: 'Where ideas meet people.', techs: [
+    ['HTML', <FaHtml5 />], ['CSS', <FaCss3Alt />], ['React.js', <FaReact />], ['Next.js', <SiNextdotjs />], ['Bootstrap', <FaCode />]
+  ]},
+  { title: 'The Engine', subtitle: 'Back-end & application systems', mark: '03', note: 'Behind every interaction.', techs: [
+    ['Node.js', <FaNodeJs />], ['Express.js', <FaServer />], ['FastAPI', <FaNetworkWired />], ['Django', <SiDjango />], ['REST APIs', <FaNetworkWired />]
+  ]},
+  { title: 'Intelligence', subtitle: 'AI, language & data exploration', mark: '04', note: 'Patterns, predictions, meaning.', techs: [
+    ['spaCy', <FaBrain />], ['NLTK', <FaBrain />], ['scikit-learn', <SiScikitlearn />], ['Gemini API', <FaRobot />], ['Streamlit', <FaChartLine />], ['Plotly', <FaChartLine />], ['LLM Evaluation', <FaBrain />], ['Power BI', <FaChartLine />]
+  ]},
+  { title: 'Data & Systems', subtitle: 'Storage, architecture & fundamentals', mark: '05', note: 'The quiet infrastructure.', techs: [
+    ['MySQL', <FaDatabase />], ['SQLite', <FaDatabase />], ['DBMS', <FaDatabase />], ['OOP', <FaCodeBranch />], ['DSA', <FaCode />], ['Operating Systems', <FaServer />], ['Computer Networks', <FaNetworkWired />], ['Data Validation', <FaDatabase />]
+  ]},
+  { title: 'The Workbench', subtitle: 'Tools, deployment & delivery', mark: '06', note: 'From local to live.', techs: [
+    ['Git', <FaGitAlt />], ['GitHub', <SiGithub />], ['VS Code', <SiVscodium />], ['PyCharm', <FaPython />], ['Docker', <FaServer />], ['GitHub Actions', <FaCodeBranch />], ['AWS · EC2 / S3', <FaCloudUploadAlt />], ['CI / CD', <FaNetworkWired />], ['FFmpeg', <FaCode />], ['Google Apps Script', <FaRobot />], ['Google Sites', <FaGlobe />], ['Vercel', <SiVercel />], ['Render', <FaCloudUploadAlt />], ['Netlify', <SiNetlify />], ['Railway', <SiRailway />], ['XAMPP', <SiXampp />], ['DBeaver', <SiDbeaver />]
+  ]},
 ];
 
 const Skills = () => {
-  const [activeTab, setActiveTab] = useState(0);
-  const activeCategory = categories[activeTab];
+  const [active, setActive] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const current = chapters[active];
+  const change = (next) => {
+    if (next < 0 || next >= chapters.length || next === active) return;
+    setDirection(next > active ? 1 : -1);
+    setActive(next);
+  };
+  useEffect(() => {
+    const onKey = (event) => {
+      if (!document.querySelector('#skills:hover')) return;
+      if (event.key === 'ArrowRight') change(active + 1);
+      if (event.key === 'ArrowLeft') change(active - 1);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [active]);
 
   return (
     <section className="skills" id="skills">
-      <h1 className="title">My Skills</h1>
-
-      <div className="skills-wrapper">
-        <div className="techstack-section">
-          {/* <h2 className="techstack-heading-title">Tech Stack</h2>
-          <p className="techstack-subtitle">
-            Tools I use to design, build, and ship products.
-          </p> */}
-
-          <div className="techstack-tabs">
-            {categories.map((cat, idx) => (
-              <button
-                key={cat.name}
-                type="button"
-                className={`techstack-tab${activeTab === idx ? ' active' : ''}`}
-                onClick={() => setActiveTab(idx)}
-              >
-                {cat.name}
-              </button>
-            ))}
+      <div className="skills-shell">
+        <div className="skills-heading">
+          <span className="skills-kicker">FIELD NOTES / 001 · TECHNICAL ARCHIVE</span>
+          <div className="skills-heading-row">
+            <h1 className="skills-title">Things I know.<br/><em>Things I build.</em></h1>
+            <p>A catalog of tools, systems and ideas I've worked with.<br/>Collected through projects, experiments and shipping things.</p>
           </div>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeCategory.name}
-              className="techstack-grid"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.28 }}
-            >
-              {activeCategory.techs.map((tech, index) => (
-                <motion.div
-                  key={tech.name}
-                  className="techstack-card"
-                  style={{ '--tech-color': tech.color }}
-                  initial={{ opacity: 0, scale: 0.92 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.28, delay: index * 0.05 }}
-                  whileHover={{ y: -8, scale: 1.03 }}
-                >
-                  <span className="techstack-glow" aria-hidden="true"></span>
-                  <div className="techstack-icon">{tech.icon}</div>
-                  <div className="techstack-name">{tech.name}</div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
         </div>
+
+        <div className="skills-book">
+          <div className="skills-book-top"><span>THE STACK / ARCHIVE OF SYSTEMS</span><span>VOL. 01 — 06</span></div>
+          <div className="skills-spread">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div className="skills-left-page" key={current.mark+'-left'} custom={direction}
+                initial={{opacity:0, rotateY: direction > 0 ? 10 : -10, x: direction > 0 ? 18 : -18}}
+                animate={{opacity:1,rotateY:0,x:0}} exit={{opacity:0, x: direction > 0 ? -18 : 18, rotateY:direction > 0 ? -8 : 8}}
+                transition={{duration:.42,ease:[.22,.61,.36,1]}}>
+                <div className="skills-page-label">CHAPTER {current.mark}</div>
+                <div className="skills-chapter-number">{current.mark}</div>
+                <div className="skills-chapter-title">{current.title}</div>
+                <div className="skills-chapter-sub">{current.subtitle}</div>
+                <div className="skills-page-rule"/>
+                <p className="skills-chapter-note">{current.note}</p>
+                <div className="skills-page-footer"><span>NOTES FROM THE WORKBENCH</span><span>{current.mark} / 06</span></div>
+              </motion.div>
+            </AnimatePresence>
+            <div className="skills-right-page">
+              <div className="skills-page-label">INDEX OF TOOLS / {current.techs.length.toString().padStart(2,'0')} ITEMS</div>
+              <AnimatePresence mode="wait">
+                <motion.div className="skills-tech-list" key={current.mark+'-tech'} initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-8}} transition={{duration:.25}}>
+                  {current.techs.map(([name,icon],i)=>(
+                    <motion.div className="skills-tech-entry" key={name} initial={{opacity:0,x:12}} animate={{opacity:1,x:0}} transition={{delay:i*.035}}>
+                      <span className="skills-tech-icon">{icon}</span><span className="skills-tech-name">{name}</span><span className="skills-tech-num">{String(i+1).padStart(2,'0')}</span>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+              <div className="skills-page-footer"><span>TECHNICAL INDEX</span><span>SCAN / EXPLORE</span></div>
+            </div>
+          </div>
+          <div className="skills-book-bottom">
+            <div className="skills-chapter-nav" role="tablist" aria-label="Skill chapters">
+              {chapters.map((chapter,i)=><button key={chapter.mark} type="button" role="tab" aria-selected={active===i} className={active===i?'active':''} onClick={()=>change(i)}><span>{chapter.mark}</span>{chapter.title}</button>)}
+            </div>
+            <div className="skills-page-controls"><button type="button" onClick={()=>change(active-1)} disabled={active===0} aria-label="Previous chapter">←</button><span>{current.mark} / 06</span><button type="button" onClick={()=>change(active+1)} disabled={active===chapters.length-1} aria-label="Next chapter">→</button></div>
+          </div>
+        </div>
+        <div className="skills-footnote"><span>AN OPEN INDEX, NOT A FINISHED LIST.</span><span>USE THE ARROWS OR SELECT A CHAPTER TO TURN THE PAGE.</span></div>
       </div>
     </section>
   );
 };
-
 export default Skills;
