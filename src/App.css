@@ -695,3 +695,11 @@ body.menu-open { overflow: hidden; }
 @media(max-width:850px){.serv-content{grid-template-columns:1fr;gap:16px}.service-visual{height:205px}.service-card-copy{padding:22px}}
 @media(max-width:600px){.services{padding:86px 0}.serv-content{grid-template-columns:1fr}.service-visual{height:180px}.service-card-copy{padding:20px 18px 26px}.service-card h3{font-size:18px}.service-card p{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.service-visual *,.service-visual{animation:none!important;transition:none!important}}
+
+
+/* Programming Languages card: centered as a featured row in the stack grid */
+.skills-category-card:nth-child(3) { grid-column: 1 / -1; width: min(760px, 100%); justify-self: center; }
+.skills-category-card:nth-child(3) .skills-card-heading { justify-content: center; }
+.skills-category-card:nth-child(3) .skills-card-count { margin-left: 0; }
+.skills-category-card:nth-child(3) .skills-chip-grid { justify-content: center; }
+@media(max-width:600px) { .skills-category-card:nth-child(3) { grid-column: auto; width: 100%; } }
