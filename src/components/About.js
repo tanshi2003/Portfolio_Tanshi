@@ -61,7 +61,7 @@ const About = () => {
                                 </span>
                             ))}
                         </div>
-                        <a href="/resume.pdf" className="about-cv-btn">
+                        <a href={`${process.env.PUBLIC_URL}/resume.pdf`} className="about-cv-btn">
                             <FaDownload />
                             Download CV
                         </a>
