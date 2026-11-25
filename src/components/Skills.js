@@ -21,13 +21,13 @@ const chapters = [
     ['Node.js', <FaNodeJs />], ['Express.js', <FaServer />], ['FastAPI', <FaNetworkWired />], ['Django', <SiDjango />], ['REST APIs', <FaNetworkWired />]
   ]},
   { title: 'Intelligence', subtitle: 'AI, language & data exploration', mark: '04', note: 'Patterns, predictions, meaning.', techs: [
-    ['spaCy', <FaBrain />], ['NLTK', <FaBrain />], ['scikit-learn', <SiScikitlearn />], ['Gemini API', <FaRobot />], ['Streamlit', <FaChartLine />], ['Plotly', <FaChartLine />], ['LLM Evaluation', <FaBrain />], ['Power BI', <FaChartLine />]
+    ['spaCy', <FaBrain />], ['NLTK', <FaBrain />], ['scikit-learn', <SiScikitlearn />], ['Gemini API', <FaRobot />], ['LLM Evaluation', <FaBrain />], ['Gemini API', <FaRobot />], ['Streamlit', <FaChartLine />]
   ]},
   { title: 'Data & Systems', subtitle: 'Storage, architecture & fundamentals', mark: '05', note: 'The quiet infrastructure.', techs: [
-    ['MySQL', <FaDatabase />], ['SQLite', <FaDatabase />], ['DBMS', <FaDatabase />], ['OOP', <FaCodeBranch />], ['DSA', <FaCode />], ['Operating Systems', <FaServer />], ['Computer Networks', <FaNetworkWired />], ['Data Validation', <FaDatabase />]
+    ['MySQL', <FaDatabase />], ['SQLite', <FaDatabase />], ['DBMS', <FaDatabase />], ['DSA / OOP', <FaCode />], ['Operating Systems', <FaServer />], ['Networks', <FaNetworkWired />]
   ]},
   { title: 'The Workbench', subtitle: 'Tools, deployment & delivery', mark: '06', note: 'From local to live.', techs: [
-    ['Git', <FaGitAlt />], ['GitHub', <SiGithub />], ['VS Code', <SiVscodium />], ['PyCharm', <FaPython />], ['Docker', <FaServer />], ['GitHub Actions', <FaCodeBranch />], ['AWS · EC2 / S3', <FaCloudUploadAlt />], ['CI / CD', <FaNetworkWired />], ['FFmpeg', <FaCode />], ['Google Apps Script', <FaRobot />], ['Google Sites', <FaGlobe />], ['Vercel', <SiVercel />], ['Render', <FaCloudUploadAlt />], ['Netlify', <SiNetlify />], ['Railway', <SiRailway />], ['XAMPP', <SiXampp />], ['DBeaver', <SiDbeaver />]
+    ['Git', <FaGitAlt />], ['GitHub', <SiGithub />], ['VS Code', <SiVscodium />], ['PyCharm', <FaPython />], ['Docker', <FaServer />], ['GitHub Actions', <FaCodeBranch />], ['AWS · EC2 / S3', <FaCloudUploadAlt />], ['CI / CD', <FaNetworkWired />], ['FFmpeg', <FaCode />], ['Google Apps Script', <FaRobot />], ['Docker', <FaServer />], ['Netlify / Vercel', <FaGlobe />], ['Render', <FaCloudUploadAlt />]
   ]},
 ];
 
