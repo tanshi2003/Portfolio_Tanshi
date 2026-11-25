@@ -1,49 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { FaArrowUpRightFromSquare, FaBars, FaXmark } from 'react-icons/fa6';
+
+const links = [
+  ['About', '/#about'],
+  ['Services', '/#services'],
+  ['Stack', '/#skills'],
+  ['Work', '/#projects'],
+  ['Contact', '/#contact'],
+];
 
 const Navbar = () => {
-    const [isSticky, setSticky] = useState(false);
-    const [isMenuActive, setMenuActive] = useState(false);
+  const [isSticky, setSticky] = useState(false);
+  const [isMenuActive, setMenuActive] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setSticky(window.scrollY > 20);
-        };
+  useEffect(() => {
+    const handleScroll = () => setSticky(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', isMenuActive);
+    return () => document.body.classList.remove('menu-open');
+  }, [isMenuActive]);
 
-    return (
-        <nav className={`navbar ${isSticky ? 'sticky' : ''}`}>
-            <div className="max-width">
-                <div className="logo">
-                    <Link to="/"><span>Portfolio</span></Link>
-                </div>
-                <ul className={`menu ${isMenuActive ? 'active' : ''}`}>
-                    <li><Link to="/#" smooth onClick={() => setMenuActive(false)}>Home</Link></li>
-                    <li><Link to="/#about" smooth onClick={() => setMenuActive(false)}>About</Link></li>
-                    <li><Link to="/#services" smooth onClick={() => setMenuActive(false)}>Services</Link></li>
-                    <li><Link to="/#skills" smooth onClick={() => setMenuActive(false)}>Skills</Link></li>
-                    <li><Link to="/#projects" smooth onClick={() => setMenuActive(false)}>Projects</Link></li>
-                    <li><Link to="/#contact" smooth onClick={() => setMenuActive(false)}>Contact</Link></li>
-                </ul>
-                <button
-                    type="button"
-                    className="menu-toggle"
-                    aria-label={isMenuActive ? 'Close navigation menu' : 'Open navigation menu'}
-                    aria-expanded={isMenuActive}
-                    onClick={() => setMenuActive(!isMenuActive)}
-                >
-                    <FontAwesomeIcon icon={faBars} />
-                </button>
-            </div>
-        </nav>
-    );
+  return (
+    <header className={`navbar ${isSticky ? 'sticky' : ''}`}>
+      <nav className="max-width nav-inner" aria-label="Main navigation">
+        <Link className="logo" to="/#home" onClick={() => setMenuActive(false)} aria-label="Tanshi Khandelwal home">
+          <span className="logo-mark">T<span>.</span>K</span>
+          <span className="logo-caption">ENGINEER / BUILDER</span>
+        </Link>
+        <ul className={`menu ${isMenuActive ? 'active' : ''}`}>
+          {links.map(([label, href], index) => (
+            <li key={href}><Link to={href} smooth onClick={() => setMenuActive(false)}><span className="nav-index">0{index + 1}</span>{label}</Link></li>
+          ))}
+          <li className="mobile-resume"><a href="/resume.pdf" target="_blank" rel="noreferrer" onClick={() => setMenuActive(false)}>Resume <FaArrowUpRightFromSquare /></a></li>
+        </ul>
+        <a className="nav-resume" href="/resume.pdf" target="_blank" rel="noreferrer">Resume <FaArrowUpRightFromSquare /></a>
+        <button type="button" className="menu-toggle" aria-label={isMenuActive ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={isMenuActive} onClick={() => setMenuActive(!isMenuActive)}>
+          {isMenuActive ? <FaXmark /> : <FaBars />}
+        </button>
+      </nav>
+    </header>
+  );
 };
 
 export default Navbar;

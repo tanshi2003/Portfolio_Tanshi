@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -9,27 +9,46 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import './App.css';
 
-// Logo will be added later
-
 function App() {
+  useEffect(() => {
+    const nodes = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      nodes.forEach((node) => node.classList.add('is-visible'));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Router>
       <div className="App">
-        <div className="cursor">
-          {Array(20).fill(null).map((_, index) => (
-            <div className="circle" key={index}></div>
-          ))}
-        </div>
-        <div className="scroll-up-btn">
-          <i className="fas fa-angle-up"></i>
-        </div>
         <Navbar />
-        <Home />
-        <About />
-        <Services />
-        <Skills />
-        <Projects />
-        <Contact />
+        <main>
+          <Home />
+          <About />
+          <Services />
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
+        <footer className="site-footer">
+          <div className="footer-inner">
+            <span>© {new Date().getFullYear()} Tanshi Khandelwal</span>
+            <span>Designed with intention. Built with code.</span>
+            <a href="#home">Back to top ↑</a>
+          </div>
+        </footer>
       </div>
     </Router>
   );

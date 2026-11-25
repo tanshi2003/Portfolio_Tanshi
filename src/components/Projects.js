@@ -8,6 +8,33 @@ const filters = ['All', 'Frontend', 'Backend', 'Full Stack', 'AI'];
 
 const projects = [
   {
+    number: '10',
+    category: 'AI',
+    title: 'FrameCheck',
+    short: 'A video review tool that flags text, spelling, and grammar issues with frame-level timestamps.',
+    description: 'A review workflow for designers working with motion and video content.',
+    image: '/images/work-10.png',
+    stack: ['Python', 'FastAPI', 'FFmpeg', 'Frame Analysis'],
+    github: '',
+    demo: '',
+    overview: 'FrameCheck is designed to help graphic and motion designers review video content for visible text issues without manually scrubbing every frame.',
+    contribution: 'Built the backend workflow around video upload, FFmpeg-based frame extraction, and timestamped review output using FastAPI.',
+  },
+  {
+    number: '11',
+    category: 'Frontend',
+    title: 'Cutie.fy',
+    short: 'A Spotify-inspired music discovery interface built with a modern React framework.',
+    description: 'A music browsing experience built with Next.js and React.',
+    image: '/images/Work-6.png',
+    stack: ['Next.js', 'React', 'CSS', 'Responsive UI'],
+    github: '',
+    demo: '',
+    overview: 'Cutie.fy explores a music discovery experience with a familiar streaming-product interaction model and a responsive interface.',
+    contribution: 'Built the application UI using Next.js and React, focusing on reusable components, page structure, and responsive styling.',
+  },
+
+  {
     number: '01',
     category: 'Frontend',
     title: 'Tic Tac Toe Game',
@@ -126,6 +153,15 @@ const projects = [
   },
 ];
 
+const priority = ['TeleCRM', 'AI Resume Analyzer', 'Email AI Agent', 'FrameCheck', 'Cutie.fy'];
+const orderedProjects = [...projects]
+  .sort((a, b) => {
+    const aRank = priority.indexOf(a.title);
+    const bRank = priority.indexOf(b.title);
+    return (aRank === -1 ? priority.length : aRank) - (bRank === -1 ? priority.length : bRank);
+  })
+  .map((project, index) => ({ ...project, number: String(index + 1).padStart(2, '0') }));
+
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
@@ -143,8 +179,8 @@ const Projects = () => {
   }, [selectedProject]);
 
   const filteredProjects = useMemo(() => {
-    if (activeFilter === 'All') return projects;
-    return projects.filter((project) => project.category === activeFilter);
+    if (activeFilter === 'All') return orderedProjects;
+    return orderedProjects.filter((project) => project.category === activeFilter);
   }, [activeFilter]);
 
   const progressPercent = `${(filteredProjects.length / projects.length) * 100}%`;
