@@ -2,9 +2,22 @@ import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   FaCode, FaPython, FaJsSquare, FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaServer,
-  FaBrain, FaDatabase, FaRobot, FaGitAlt, FaCloud, FaTerminal, FaNetworkWired
+  FaBrain, FaDatabase, FaRobot, FaGitAlt, FaCloud, FaTerminal, FaNetworkWired,
+  FaChartLine, FaGlobe, FaCodeBranch
 } from 'react-icons/fa';
-import { SiCplusplus, SiNextdotjs, SiDjango, SiScikitlearn, SiGithub, SiDocker } from 'react-icons/si';
+import {
+  SiCplusplus,
+  SiNextdotjs,
+  SiDjango,
+  SiScikitlearn,
+  SiGithub,
+  SiDocker,
+  SiVercel,
+  SiNetlify,
+  SiRailway,
+  SiXampp,
+  SiDbeaver,
+} from 'react-icons/si';
 
 const groups = [
   { id:'01', name:'Languages', caption:'I think in logic.', items:[
@@ -17,10 +30,16 @@ const groups = [
     ['Node.js',<FaNodeJs/>],['Express',<FaServer/>],['FastAPI',<FaNetworkWired/>],['Django',<SiDjango/>],['REST APIs',<FaNetworkWired/>],['MySQL',<FaDatabase/>]
   ]},
   { id:'04', name:'AI & Data', caption:'I explore what data can do.', items:[
-    ['spaCy',<FaBrain/>],['NLTK',<FaBrain/>],['scikit-learn',<SiScikitlearn/>],['Gemini API',<FaRobot/>],['LLM Evaluation',<FaBrain/>],['Streamlit',<FaCode/>]
+    ['spaCy',<FaBrain/>],['NLTK',<FaBrain/>],['scikit-learn',<SiScikitlearn/>],['Gemini API',<FaRobot/>],['LLM Evaluation',<FaBrain/>],['Streamlit',<FaCode/>],
+    ['Power BI',<FaChartLine/>],['NLP-based Analysis',<FaBrain/>],['Data Validation',<FaDatabase/>],['Basic ML Applications',<SiScikitlearn/>]
   ]},
   { id:'05', name:'Tools', caption:'From local to live.', items:[
-    ['Git & GitHub',<FaGitAlt/>],['Docker',<SiDocker/>],['AWS',<FaCloud/>],['CI / CD',<FaNetworkWired/>],['VS Code',<FaTerminal/>],['FFmpeg',<FaCode/>]
+    ['Git',<FaGitAlt/>],['GitHub',<SiGithub/>],['Docker',<SiDocker/>],['AWS',<FaCloud/>],['CI / CD',<FaNetworkWired/>],['VS Code',<FaTerminal/>],['FFmpeg',<FaCode/>],
+    ['Google Apps Script',<FaRobot/>],['Google Sites',<FaGlobe/>],['PyCharm',<FaPython/>],['SQLite',<FaDatabase/>],
+    ['DSA',<FaCode/>],['OOP',<FaCodeBranch/>],['DBMS',<FaDatabase/>],['OS',<FaServer/>],['Computer Networks',<FaNetworkWired/>]
+  ]},
+  { id:'06', name:'Deployment', caption:'I take projects from build to live.', items:[
+    ['Vercel',<SiVercel/>],['Netlify',<SiNetlify/>],['Render',<FaCloud/>],['Railway',<SiRailway/>],['XAMPP',<SiXampp/>],['DBeaver',<SiDbeaver/>]
   ]}
 ];
 
@@ -40,7 +59,7 @@ export default function Skills(){
         <div className="skills-panel">
           <div className="skills-panel-head">
             <span>TECH STACK</span>
-            <span>{group.id} / 05</span>
+            <span>{group.id} / 06</span>
           </div>
           <div className="skills-tabs" role="tablist" aria-label="Skill categories">
             {groups.map((g,i)=><button type="button" role="tab" aria-selected={selected===i} className={selected===i?'active':''} key={g.id} onClick={()=>setSelected(i)}>
@@ -62,7 +81,7 @@ export default function Skills(){
               </motion.div>
             </AnimatePresence>
           </div>
-          <div className="skills-panel-foot"><span>SELECT A CATEGORY TO EXPLORE</span><span>5 AREAS · {groups.reduce((total,g)=>total+g.items.length,0)} SKILLS</span></div>
+          <div className="skills-panel-foot"><span>SELECT A CATEGORY TO EXPLORE</span><span>6 AREAS · {groups.reduce((total,g)=>total+g.items.length,0)} SKILLS</span></div>
         </div>
       </div>
     </section>
