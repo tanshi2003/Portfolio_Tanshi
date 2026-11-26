@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
@@ -170,6 +170,14 @@ const Projects = () => {
     [activeFilter],
   );
 
+  const navigateProject = useCallback((direction) => {
+    if (!selectedProject) return;
+    const currentIndex = projects.findIndex((project) => project.title === selectedProject.title);
+    const nextIndex = (currentIndex + direction + projects.length) % projects.length;
+    setProjectDirection(direction);
+    setSelectedProject(projects[nextIndex]);
+  }, [selectedProject]);
+
   useEffect(() => {
     if (!selectedProject) return;
     const previousOverflow = document.body.style.overflow;
@@ -184,16 +192,10 @@ const Projects = () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener('keydown', handleKey);
     };
-  }, [selectedProject]);
+  }, [selectedProject, navigateProject]);
+
 
   const openProject = (project) => { setProjectDirection(1); setSelectedProject(project); };
-  const navigateProject = (direction) => {
-    if (!selectedProject) return;
-    const currentIndex = projects.findIndex((project) => project.title === selectedProject.title);
-    const nextIndex = (currentIndex + direction + projects.length) % projects.length;
-    setProjectDirection(direction);
-    setSelectedProject(projects[nextIndex]);
-  };
   const projectCard = (project, index) => (
     <motion.article
       key={project.title}
