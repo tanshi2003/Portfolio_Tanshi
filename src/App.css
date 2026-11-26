@@ -729,3 +729,14 @@ body.menu-open { overflow: hidden; }
 .project-card, .project-feature, .service-card, .skills-category-card, .exp-card, .about-summary { box-shadow: none !important; }
 .project-card:hover, .project-feature:hover, .service-card:hover, .skills-category-card:hover, .exp-card:hover { transform: none; }
 .console-float, .hero-console { display: none !important; }
+
+
+/* Project details: directional carousel navigation */
+.project-modal-carousel-nav { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:18px 0 18px; padding:11px 0; border-top:1px solid #29332d; border-bottom:1px solid #29332d; color:#89958d; font:10px 'DM Mono',monospace; }
+.project-modal-carousel-nav button { display:inline-flex; align-items:center; gap:7px; border:0; background:transparent; color:#dce6dd; padding:8px 3px; cursor:pointer; font:11px 'DM Mono',monospace; transition:color .2s ease, transform .2s ease; }
+.project-modal-carousel-nav button:hover { color:#a8f078; }
+.project-modal-carousel-nav button:first-child:hover { transform:translateX(-2px); }
+.project-modal-carousel-nav button:last-child:hover { transform:translateX(2px); }
+.project-modal-carousel-nav span { color:#a8f078; }
+@media(max-width:700px){ .project-modal-carousel-nav{margin:14px 0;gap:8px}.project-modal-carousel-nav button{font-size:10px} }
+@media(prefers-reduced-motion:reduce){ .project-modal-carousel-nav button{transition:none!important} }
