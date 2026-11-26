@@ -226,7 +226,7 @@ const Projects = () => {
       <div className="max-width projects-shell">
         <header className="projects-header">
           <div className="projects-heading-copy">
-            <span className="section-kicker">THE WORK / 2024—2026</span>
+            <span className="section-kicker">THE WORK / 2022—2026</span>
             <h2 className="title">Selected works<span className="projects-title-dot">.</span></h2>
             <p className="projects-lead">Different problems, different tools. A shared obsession with making useful things work beautifully.</p>
           </div>
