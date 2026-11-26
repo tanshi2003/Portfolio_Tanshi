@@ -158,6 +158,7 @@ const projects = [
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [projectDirection, setProjectDirection] = useState(1);
   const reduceMotion = useReducedMotion();
   const featured = projects.find((project) => project.title === 'TeleCRM');
   const otherProjects = projects.filter((project) => project !== featured);
@@ -175,6 +176,8 @@ const Projects = () => {
     document.body.style.overflow = 'hidden';
     const handleKey = (event) => {
       if (event.key === 'Escape') setSelectedProject(null);
+      if (event.key === 'ArrowRight') navigateProject(1);
+      if (event.key === 'ArrowLeft') navigateProject(-1);
     };
     window.addEventListener('keydown', handleKey);
     return () => {
@@ -183,7 +186,14 @@ const Projects = () => {
     };
   }, [selectedProject]);
 
-  const openProject = (project) => setSelectedProject(project);
+  const openProject = (project) => { setProjectDirection(1); setSelectedProject(project); };
+  const navigateProject = (direction) => {
+    if (!selectedProject) return;
+    const currentIndex = projects.findIndex((project) => project.title === selectedProject.title);
+    const nextIndex = (currentIndex + direction + projects.length) % projects.length;
+    setProjectDirection(direction);
+    setSelectedProject(projects[nextIndex]);
+  };
   const projectCard = (project, index) => (
     <motion.article
       key={project.title}
@@ -250,9 +260,10 @@ const Projects = () => {
           <motion.div className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" initial={reduceMotion ? false : { opacity: 0, y: 18, scale: .985 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 10, scale: .985 }} onClick={(e) => e.stopPropagation()}>
             <button type="button" className="project-modal-close" onClick={() => setSelectedProject(null)} aria-label="Close project details">×</button>
             <div className="project-modal-visual"><img src={selectedProject.image} alt={`${selectedProject.title} preview`} /></div>
-            <div className="project-modal-body">
+            <motion.div key={selectedProject.title} className="project-modal-body" initial={reduceMotion ? false : { opacity: 0, x: projectDirection * 38 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: reduceMotion ? 0 : 0.24, ease: "easeOut" }}>
               <div className="project-modal-header"><span className="project-modal-number">{selectedProject.number}</span><span className="project-modal-category">{selectedProject.category}</span></div>
               <h3 id="project-modal-title">{selectedProject.title}</h3>
+              <div className="project-modal-carousel-nav" aria-label="Navigate projects"><button type="button" onClick={() => navigateProject(-1)}><span aria-hidden="true">←</span> Previous</button><span>{projects.findIndex((project) => project.title === selectedProject.title) + 1} / {projects.length}</span><button type="button" onClick={() => navigateProject(1)}>Next <span aria-hidden="true">→</span></button></div>
               <p className="project-modal-description">{selectedProject.overview}</p>
               <div className="project-modal-grid">
                 <div><h4>What I worked on</h4><p>{selectedProject.contribution}</p></div>
@@ -262,7 +273,7 @@ const Projects = () => {
                 {selectedProject.demo && <a href={selectedProject.demo} target="_blank" rel="noreferrer noopener"><FontAwesomeIcon icon={faExternalLinkAlt}/><span>Live demo</span></a>}
                 {selectedProject.github && <a href={selectedProject.github} target="_blank" rel="noreferrer noopener"><FontAwesomeIcon icon={faGithub}/><span>Source code</span></a>}
               </div>
-            </div>
+            </motion.div>
           </motion.div></motion.div>}
       </AnimatePresence>
     </section>
