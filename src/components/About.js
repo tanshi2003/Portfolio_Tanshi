@@ -17,15 +17,15 @@ const highlights = [
 
 const experiences = [
     {
-        role: 'Graduate Engineer',
+        role: 'Software Development & Automation',
         company: 'QualityAI (formerly Qualitest)',
         client: 'Client: Google',
         duration: 'Feb 2026 – Present',
         points: [
-            'Developed internal web applications and automation solutions for Google using Google Apps Script, JavaScript, HTML, CSS, and Google Sheets.',
-            'Built a real-time project monitoring and status tracking dashboard to automate project reporting across initiatives.',
-            'Integrated Google Sheets as a backend data source with dynamic JavaScript-based rendering for live project health, ownership, priority, and workflow tracking.',
-            'Supported LLM evaluation and data validation workflows while improving reporting consistency and operational efficiency.',
+            'Engineered internal web applications and workflow automation solutions using React, TypeScript, JavaScript, Google Apps Script, and Google Workspace APIs.',
+            'Developed interactive project monitoring dashboards featuring dynamic data rendering, project health metrics, ownership tracking, priority management, and workflow status visualization.',
+            'Integrated Google Sheets as a data source, implementing automated data processing, synchronization, and reporting workflows to streamline project tracking and reduce manual operations.',
+            'Supported AI/LLM evaluation and data validation pipelines, contributing to data quality, reporting reliability, and operational process optimization.',
         ],
     },
     {

@@ -110,7 +110,7 @@ const projects = [
     image: `${process.env.PUBLIC_URL}/images/work-7.png`,
     stack: ['Django', 'Python', 'Database', 'Bookings'],
     github: 'https://github.com/tanshi2003/Hotel-Management-System',
-    demo: 'https://hotel-management-system-k8f0.onrender.com',
+    demo: 'https://tanshi2003.github.io/Hotel-Management-System/',
     overview: 'A hotel operations app for coordinating rooms, bookings, and day-to-day management.',
     contribution: 'Implemented core booking and hotel data workflows across the Django application.',
   },
