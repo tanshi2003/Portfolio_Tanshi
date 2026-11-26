@@ -29,7 +29,7 @@ const projects = [
     image: `${process.env.PUBLIC_URL}/images/work-11.png`,
     stack: ['Python', 'AI', 'NLP', 'Automation'],
     github: 'https://github.com/tanshi2003/Email-AI-Agent.git',
-    demo: '',
+    demo: 'https://tanshi2003.github.io/Email-Ai-agent/',
     overview: 'A Python email assistant that analyses inbox content and helps automate everyday email workflows.',
     contribution: 'Developed the email-processing workflow and Python logic for content analysis and response support.',
   },
