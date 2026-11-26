@@ -11,73 +11,60 @@ const projects = [
     number: '01',
     category: 'AI',
     title: 'Email AI Agent',
-    short: 'An AI-first workflow for automating inbox understanding and response planning.',
-    description: 'Developed a Python-based Email AI Agent that automates Gmail inbox management with smart content analysis and automated responses.',
+    short: 'An AI-powered assistant for understanding inbox content and planning email actions.',
+    description: 'A Python-based agent for analysing email content and supporting inbox workflows.',
     image: `${process.env.PUBLIC_URL}/images/work-11.png`,
     stack: ['Python', 'AI', 'NLP', 'Automation'],
     github: 'https://github.com/tanshi2003/Email-AI-Agent.git',
     demo: '',
-    overview: 'An intelligent email agent designed to analyze inbox content, support task understanding, and automate relevant actions.',
-    contribution: 'Built the AI-driven workflow around content analysis, filtering, and response logic using Python and NLP-focused thinking.',
+    overview: 'A Python email assistant that analyses inbox content and helps automate everyday email workflows.',
+    contribution: 'Developed the email-processing workflow and Python logic for content analysis and response support.',
   },
-  // {
-  //   number: '02',
-  //   category: 'AI',
-  //   title: 'AI Resume Analyzer',
-  //   short: 'A resume screening experience with ATS scoring and job-fit insights.',
-  //   description: 'Created an AI Resume Analyzer that provides ATS scoring and job-market insights using Python, NLP, and Streamlit.',
-  //   image: `${process.env.PUBLIC_URL}/images/work-12.png`,
-  //   stack: ['Python', 'NLP', 'Streamlit', 'ATS'],
-  //   github: 'https://github.com/tanshi2003/AI-Resume-Analyzer.git',
-  //   demo: '',
-  //   overview: 'A resume analysis tool for extracting insights, reviewing fit, and applying scoring logic to help users assess job-market readiness.',
-  //   contribution: 'Built the analyzer workflow and user-facing scoring experience with an emphasis on intelligent resume evaluation and useful output.',
-  // },
   {
-    number: '03',
+    number: '02',
     category: 'AI',
     title: 'FrameCheck',
     short: 'Video QA that detects text, spelling, and grammar issues with timestamps.',
-    description: 'A video review tool for finding text issues in extracted frames.',
+    description: 'A video review tool that checks text in extracted frames.',
     image: `${process.env.PUBLIC_URL}/images/frame.png`,
     stack: ['Python', 'FastAPI', 'FFmpeg', 'Frame Analysis'],
     github: '',
     demo: '',
-    overview: 'FrameCheck helps designers review motion and video content by extracting frames and surfacing visible text for spelling and grammar checks, with timestamps to locate issues quickly.',
-    contribution: 'Built the FastAPI backend workflow and integrated FFmpeg frame extraction to support timestamped video review.',
+    overview: 'FrameCheck helps designers spot spelling and grammar issues in video text, with timestamps to find each issue quickly.',
+    contribution: 'Built the FastAPI backend and integrated FFmpeg to extract video frames for timestamped text review.',
   },
   {
-    number: '04',
+    number: '03',
     category: 'Full Stack',
     title: 'Lost and Found Portal',
-    short: 'A campus utility platform for reporting and recovering lost items.',
-    description: 'Django-based platform to report & search items in campus.',
+    short: 'A campus platform for reporting and recovering lost items.',
+    description: 'A Django application for reporting and searching for items on campus.',
     image: `${process.env.PUBLIC_URL}/images/work-4.png`,
     stack: ['Django', 'Python', 'MySQL', 'Web App'],
     github: 'https://github.com/tanshi2003/Lost-and-Found-Portal',
     demo: 'https://lost-and-found-portal-b7gw.onrender.com/',
-    overview: 'A campus-focused inventory and reporting platform designed to help users quickly track and recover lost items.',
-    contribution: 'Built the application flow for item reporting, search, and retrieval while working across Django backend logic and user-facing screens.',
+    overview: 'A campus portal where users can report lost belongings and search for items that have been found.',
+    contribution: 'Built the item reporting and search flows, connecting Django backend logic with the user interface.',
   },
   {
-    number: '05',
+    number: '04',
     category: 'Full Stack',
     title: 'Hotel Management System',
-    short: 'A management dashboard covering bookings, rooms, and operational workflows.',
-    description: 'Django app for managing bookings, staff & rooms.',
+    short: 'A management dashboard for bookings, rooms, and hotel operations.',
+    description: 'A Django application for managing hotel bookings, staff, and rooms.',
     image: `${process.env.PUBLIC_URL}/images/work-7.png`,
     stack: ['Django', 'Python', 'Database', 'Bookings'],
     github: 'https://github.com/tanshi2003/Hotel-Management-System',
     demo: 'https://hotel-management-system-k8f0.onrender.com',
-    overview: 'A hotel operations application focused on daily business workflows, room and booking coordination, and operational visibility.',
-    contribution: 'Designed and implemented core workflows for hotel data management, helping streamline user interactions and backend data handling.',
+    overview: 'A hotel operations app for coordinating rooms, bookings, and day-to-day management.',
+    contribution: 'Implemented core booking and hotel data workflows across the Django application.',
   },
   {
-    number: '06',
+    number: '05',
     category: 'Full Stack',
     title: 'Saffron & Stone',
-    short: 'A modern multi-cuisine restaurant experience featuring an extensive menu, interactive cart, and an AI-powered food guide.',
-    description: 'A responsive restaurant and café website with 1,000+ menu entries, smart food discovery, dietary filters, demo checkout, and an AI assistant.',
+    short: 'A multi-cuisine restaurant experience with an interactive menu, cart, and AI food guide.',
+    description: 'A responsive restaurant website with 1,000+ menu entries, dietary filters, demo checkout, and an AI assistant.',
     image: `${process.env.PUBLIC_URL}/images/rw.png`,
     stack: [
       'HTML5',
@@ -89,15 +76,15 @@ const projects = [
     ],
     github: 'https://github.com/tanshi2003/Restaurant-website',
     demo: 'https://tanshi2003.github.io/Restaurant-website/',
-    overview: 'Developed Saffron & Stone, a modern restaurant and café website featuring more than 1,000 food and beverage entries across 32 collections and 17 top-level categories. The experience includes interactive menu exploration, dish search, dietary filters, a shopping bag with quantity and price calculations, and Olive, an AI-powered food guide integrated with the Gemini API.',
-    contribution: 'Built the responsive frontend using HTML, CSS, and vanilla JavaScript. Implemented category-based menu navigation, dish search, dietary filtering, interactive shopping bag functionality, quantity controls, subtotal and delivery calculations, and demo checkout options. Integrated Olive through a Vercel serverless chat endpoint powered by Gemini API and deployed the frontend using GitHub Pages.',
+    overview: 'A restaurant website with 1,000+ dishes across 32 collections, menu search, dietary filters, an interactive cart, and Olive, an AI food guide.',
+    contribution: 'Built the responsive menu, search and filter tools, cart calculations, and demo checkout. Integrated Olive with Gemini through a Vercel serverless endpoint.',
   },
   {
     number: '06',
     category: 'Backend',
     title: 'Password Manager',
-    short: 'An account-based password manager featuring client-side encryption, secure credential storage, and cross-device synchronisation.',
-    description: 'A full-stack password management application with authenticated accounts, an encrypted credential vault, and intelligent password generation.',
+    short: 'A password vault with secure accounts, encrypted storage, and password generation.',
+    description: 'A full-stack password manager with authentication and an encrypted credential vault.',
     image: `${process.env.PUBLIC_URL}/images/pw.png`,
     stack: [
       'JavaScript',
@@ -111,60 +98,60 @@ const projects = [
     ],
     github: 'https://github.com/tanshi2003/Password_Manager',
     demo: 'https://tanshi2003.github.io/Password_Manager/',
-    overview: 'Developed a full-stack password manager that enables users to create accounts, authenticate securely, store and manage website credentials, generate strong passwords, and access their encrypted vault across devices. Implemented browser-side AES-256-GCM encryption with PBKDF2-based key derivation, ensuring vault contents are encrypted before synchronisation with the MySQL-compatible database.',
-    contribution: 'Implemented RESTful APIs using Node.js and Express, integrated MySQL database operations, and developed account authentication using bcrypt and JWT. Built client-side vault encryption using the Web Crypto API, along with credential management, password generation, search, and encrypted backup functionality. Deployed the frontend through GitHub Pages and the backend through Render.',
+    overview: 'A full-stack password manager with account authentication and a synced credential vault. Vault data is encrypted in the browser using AES-256-GCM and PBKDF2 before storage.',
+    contribution: 'Built the Express APIs, MySQL integration, and bcrypt/JWT authentication. Added browser-side encryption, credential management, password generation, search, and encrypted backups.',
   },
   {
     number: '07',
     category: 'Full Stack',
     title: 'TeleCRM',
-    short: 'A role-based CRM focused on campaign and lead management workflows.',
-    description: 'Role-based CRM for managing leads, users, campaigns.',
+    short: 'A role-based CRM for managing leads, teams, and campaigns.',
+    description: 'A role-based CRM for managing leads, users, and campaigns.',
     image: `${process.env.PUBLIC_URL}/images/work-9.png`,
-    stack: ['React', 'Node.js', 'CRM', 'UI'],
+    stack: ['React', 'Node.js', 'Express', 'MySQL', 'Socket.io'],
     github: 'https://github.com/tanshi2003/telecrm_db',
     demo: 'https://tanshi2003.github.io/telecrm_db/',
-    overview: 'A customer relationship management system built around lead tracking, access control, and operational execution.',
-    contribution: 'Contributed to the CRM experience with a focus on user interaction, campaign workflows, and a structured management interface.',
+    overview: 'A role-based CRM that brings lead tracking, team coordination, and campaign management into one workspace.',
+    contribution: 'Developed CRM workflows and interfaces for managing leads, users, and campaigns across role-based dashboards.',
   },
   {
     number: '08',
     category: 'Frontend',
     title: 'Tic Tac Toe Game',
-    short: 'An interactive browser-based Tic Tac Toe game featuring AI opponents, custom player names, and persistent match score tracking.',
-    description: 'A responsive 3x3 strategy game where players challenge an AI bot or compete with a friend in local multiplayer mode.',
+    short: 'A browser game with AI opponents, local multiplayer, and persistent scores.',
+    description: 'A responsive strategy game with AI and local multiplayer modes.',
     image: `${process.env.PUBLIC_URL}/images/ttt.png`,
     stack: ['HTML5', 'CSS3', 'JavaScript', 'Minimax AI', 'Local Storage'],
     github: 'https://github.com/tanshi2003/Tic-tac-toe',
     demo: 'https://tanshi2003.github.io/Tic-tac-toe/',
-    overview: 'Developed an interactive Tic Tac Toe game with single-player and local two-player modes. Features three AI difficulty levels, custom player names, automatic win and draw detection, and a live scoreboard that tracks match performance across rounds using browser local storage.',
-    contribution: 'Implemented turn-based game logic, AI decision-making using the Minimax algorithm, move validation, win-state detection, and responsive UI interactions. Added customizable player names, persistent score tracking, highlighted winning combinations, and independent controls for restarting rounds and resetting matches.',
+    overview: 'A responsive Tic Tac Toe game with three AI difficulty levels, local multiplayer, custom player names, and a saved scoreboard.',
+    contribution: 'Implemented game logic, Minimax-based AI, win detection, responsive controls, and persistent match scores.',
   },
   {
     number: '09',
     category: 'Frontend',
     title: 'Snake Game',
-    short: 'A redesigned classic Snake arcade game available in both browser and desktop editions, featuring customizable speed, sound effects, and responsive controls.',
-    description: 'A browser-playable arcade game with dynamic movement, collision detection, real-time scoring, and customizable gameplay, alongside the original Python desktop version.',
+    short: 'A classic Snake game with adjustable speed, sound, and browser and desktop versions.',
+    description: 'A browser arcade game with responsive controls and a Python desktop edition.',
     image: `${process.env.PUBLIC_URL}/images/snake.png`,
     stack: ['HTML5', 'CSS3', 'JavaScript', 'Canvas API', 'Python', 'Pygame'],
     github: 'https://github.com/tanshi2003/Snakegame',
     demo: 'https://tanshi2003.github.io/Snakegame/',
-    overview: 'Rebuilt the classic Snake game as a responsive browser experience while preserving the original Python and Pygame desktop edition. The browser version includes keyboard and mobile controls, adjustable difficulty, a 10-level manual speed controller, sound effects, wall wrapping, and locally saved personal best scores.',
-    contribution: 'Developed the browser game loop, snake movement, food generation, collision detection, and real-time scoring system. Implemented manual speed adjustment, dynamic difficulty progression, audio feedback using the Web Audio API, responsive mobile controls, pause and restart functionality, and persistent high-score tracking.',
+    overview: 'A modern browser version of Snake alongside the original Python/Pygame edition, with mobile controls, adjustable speed, sound, and saved high scores.',
+    contribution: 'Built movement, food generation, collision detection, scoring, difficulty controls, sound effects, and responsive mobile controls.',
   },
   {
     number: '10',
     category: 'Frontend',
     title: 'Rock Paper Scissors',
-    short: 'An interactive browser game featuring AI-based solo play, local multiplayer, custom player names, and real-time score tracking.',
-    description: 'A responsive Rock Paper Scissors game offering computer and same-device multiplayer modes with interactive feedback and optional Flask API support.',
+    short: 'A browser game with solo AI play, local multiplayer, and score tracking.',
+    description: 'A responsive game with computer and same-device multiplayer modes.',
     image: `${process.env.PUBLIC_URL}/images/rps.png`,
     stack: ['HTML5', 'CSS3', 'JavaScript', 'Python', 'Flask', 'REST API'],
     github: 'https://github.com/tanshi2003/Rock-Paper-Scisssors',
     demo: 'https://tanshi2003.github.io/Rock-Paper-Scisssors/',
-    overview: 'Designed a browser-based Rock Paper Scissors game with solo play against a randomly choosing computer opponent and local two-player matches. Includes custom player names, hidden move selection until both players have chosen, automatic winner detection, score tracking, sound controls, and keyboard shortcuts. Also includes an optional Flask API for standalone game-logic experimentation.',
-    contribution: 'Developed the interactive gameplay system, random computer move generation, multiplayer turn management, move validation, and round-based scoring. Implemented hidden player selections, custom name handling, sound effects, keyboard shortcuts, responsive UI components, and an optional Flask REST API for game logic.',
+    overview: 'A browser-based game with computer and two-player modes, custom names, round results, score tracking, and optional Flask API support.',
+    contribution: 'Implemented computer moves, multiplayer turns, winner detection, scoring, sound and keyboard controls, plus the optional Flask API.',
   },
 ];
 
@@ -199,7 +186,7 @@ const Projects = () => {
   const openProject = (project) => setSelectedProject(project);
   const projectCard = (project, index) => (
     <motion.article
-      key={project.number}
+      key={project.title}
       layout
       className="project-card"
       initial={reduceMotion ? false : { opacity: 0, y: 24 }}
@@ -216,7 +203,6 @@ const Projects = () => {
       <div className="project-card-info">
         <div className="project-card-title-line"><h3>{project.title}</h3><span className="project-card-number">{project.number}</span></div>
         <p>{project.short}</p>
-        
       </div>
     </motion.article>
   );
@@ -235,7 +221,7 @@ const Projects = () => {
           </div>
         </header>
 
-        <div className="projects-count-row"><span>{filteredProjects.length} projects</span><span>SELECTED / 10</span></div>
+        <div className="projects-count-row"><span>{activeFilter === 'All' ? projects.length : filteredProjects.length} projects</span><span>SELECTED / {projects.length}</span></div>
 
         {activeFilter === 'All' && featured && (
           <motion.article className="project-feature" initial={reduceMotion ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: reduceMotion ? 0 : 0.5 }}>
@@ -284,4 +270,5 @@ const Projects = () => {
     </section>
   );
 };
+
 export default Projects;
