@@ -716,7 +716,8 @@ body.menu-open { overflow: hidden; }
 .home { background: #0b0d0f; }
 .home-grid, .home-orbit, .home-glow, .console-float, .home-meta, .scroll-cue { display: none !important; }
 .hero-console { display: block !important; }
-.home-layout { grid-template-columns: minmax(0, 1fr) !important; max-width: 1160px; }
+.home-layout { grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr) !important; max-width: 1160px; column-gap: clamp(32px, 5vw, 72px); }
+@media (max-width: 760px) { .home-layout { grid-template-columns: 1fr !important; } .hero-console { width: 100%; max-width: 520px; margin-inline: auto; } }
 .home-content { max-width: 780px; }
 .home .eyebrow { display: none; }
 .home .text-2 { font-size: clamp(48px, 7vw, 86px); }
