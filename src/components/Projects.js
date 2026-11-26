@@ -197,11 +197,10 @@ const Projects = () => {
     >
       <button type="button" className="project-card-visual" onClick={() => openProject(project)} aria-label={`View ${project.title} details`}>
         <img src={project.image} alt={`${project.title} preview`} loading="lazy" />
-        <span className="project-card-index">{project.number} / {project.category.toUpperCase()}</span>
         <span className="project-card-arrow">↗</span>
       </button>
       <div className="project-card-info">
-        <div className="project-card-title-line"><h3>{project.title}</h3><span className="project-card-number">{project.number}</span></div>
+        <div className="project-card-title-line"><h3>{project.title}</h3></div>
         <p>{project.short}</p>
       </div>
     </motion.article>
@@ -213,21 +212,20 @@ const Projects = () => {
         <header className="projects-header">
           <div className="projects-heading-copy">
             <span className="section-kicker">THE WORK / 2022—2026</span>
-            <h2 className="title">Selected works<span className="projects-title-dot">.</span></h2>
-            <p className="projects-lead">Different problems, different tools. A shared obsession with making useful things work beautifully.</p>
+            <h2 className="title">Selected projects</h2>
+            <p className="projects-lead">A selection of applications, tools, and experiments I have built.</p>
           </div>
           <div className="project-filters" aria-label="Filter projects">
             {filters.map((filter) => <button key={filter} type="button" className={`filter-btn ${activeFilter === filter ? 'active' : ''}`} onClick={() => setActiveFilter(filter)}>{filter}</button>)}
           </div>
         </header>
 
-        <div className="projects-count-row"><span>{activeFilter === 'All' ? projects.length : filteredProjects.length} projects</span><span>SELECTED / {projects.length}</span></div>
 
         {activeFilter === 'All' && featured && (
           <motion.article className="project-feature" initial={reduceMotion ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: reduceMotion ? 0 : 0.5 }}>
             <button type="button" className="project-feature-image" onClick={() => openProject(featured)} aria-label="Open TeleCRM details">
               <img src={featured.image} alt="TeleCRM application preview" loading="lazy" />
-              <span className="project-feature-image-label">FEATURED PROJECT / 01</span><span className="project-feature-arrow">↗</span>
+              <span className="project-feature-arrow">↗</span>
             </button>
             <div className="project-feature-copy">
               <div className="project-feature-meta"><span>FULL STACK</span><span>FINAL YEAR PROJECT</span></div>
