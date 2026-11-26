@@ -1,17 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
- FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaNodeJs, FaServer, FaPython,
+ FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaNodeJs, FaServer, FaPython,
  FaBrain, FaRobot, FaGitAlt, FaTerminal, FaNetworkWired, FaChartLine,
  FaCode
 } from 'react-icons/fa';
 import {
  SiNextdotjs, SiDjango, SiCplusplus, SiScikitlearn, SiGithub, SiMysql,
- SiExpress, SiFastapi, SiStreamlit
+ SiExpress, SiFastapi, SiStreamlit, SiTailwindcss
 } from 'react-icons/si';
 
 const groups=[
- {title:'Frontend',icon:<FaReact/>,skills:[['React',<FaReact/>],['Next.js',<SiNextdotjs/>],['HTML5',<FaHtml5/>],['CSS3',<FaCss3Alt/>],['JavaScript',<FaJsSquare/>],['Bootstrap',<FaBootstrap/>]]},
+ {title:'Frontend',icon:<FaReact/>,skills:[['React',<FaReact/>],['Next.js',<SiNextdotjs/>],['HTML5',<FaHtml5/>],['CSS3',<FaCss3Alt/>],['JavaScript',<FaJsSquare/>],['Tailwind CSS',<SiTailwindcss/>]]},
  {title:'Backend',icon:<FaServer/>,skills:[['Node.js',<FaNodeJs/>],['Express',<SiExpress/>],['Python',<FaPython/>],['Django',<SiDjango/>],['FastAPI',<SiFastapi/>],['MySQL',<SiMysql/>],['REST APIs',<FaNetworkWired/>]]},
  {title:'Programming Languages',icon:<FaCode/>,skills:[['C',<FaCode/>],['C++',<SiCplusplus/>],['Python',<FaPython/>],['JavaScript',<FaJsSquare/>]]},
  {title:'AI, Data & Tools',icon:<FaBrain/>,skills:[['spaCy',<FaBrain/>],['NLTK',<FaBrain/>],['scikit-learn',<SiScikitlearn/>],['Gemini API',<FaRobot/>],['LLM Evaluation',<FaBrain/>],['Streamlit',<SiStreamlit/>],['Power BI',<FaChartLine/>],['Git',<FaGitAlt/>],['GitHub',<SiGithub/>],['CI/CD',<FaNetworkWired/>],['VS Code',<FaTerminal/>],['FFmpeg',<FaCode/>]]}
