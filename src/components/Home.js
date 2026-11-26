@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
-import { FaArrowUpRightFromSquare, FaGithub, FaLinkedinIn } from 'react-icons/fa6';
+import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 
 const Home = () => {
   const typedRef = useRef(null);
@@ -25,10 +25,6 @@ const Home = () => {
           <div className="home-actions">
             <a className="button button-primary" href="#projects">View my work <FaArrowUpRightFromSquare /></a>
             <a className="button button-quiet" href="https://mail.google.com/mail/?view=cm&fs=1&to=tanshikhandelwal03@gmail.com" target="_blank" rel="noreferrer">Get in touch</a>
-          </div>
-          <div className="hero-socials">
-            <a href="https://github.com/tanshi2003" target="_blank" rel="noreferrer" aria-label="GitHub"><FaGithub /></a>
-            <a href="https://www.linkedin.com/in/tanshi-khandelwal-30a1b8209" target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a>
           </div>
         </div>
       </div>
