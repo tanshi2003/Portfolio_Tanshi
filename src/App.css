@@ -714,7 +714,8 @@ body.menu-open { overflow: hidden; }
 
 /* Simplified presentation: keep layout, remove decorative template effects */
 .home { background: #0b0d0f; }
-.home-grid, .home-orbit, .home-glow, .hero-console, .console-float, .home-meta, .scroll-cue { display: none !important; }
+.home-grid, .home-orbit, .home-glow, .console-float, .home-meta, .scroll-cue { display: none !important; }
+.hero-console { display: block !important; }
 .home-layout { grid-template-columns: minmax(0, 1fr) !important; max-width: 1160px; }
 .home-content { max-width: 780px; }
 .home .eyebrow { display: none; }
@@ -728,7 +729,7 @@ body.menu-open { overflow: hidden; }
 .projects-lead { max-width: 540px; }
 .project-card, .project-feature, .service-card, .skills-category-card, .exp-card, .about-summary { box-shadow: none !important; }
 .project-card:hover, .project-feature:hover, .service-card:hover, .skills-category-card:hover, .exp-card:hover { transform: none; }
-.console-float, .hero-console { display: none !important; }
+.console-float { display: none !important; }
 
 
 /* Project details: directional carousel navigation */
